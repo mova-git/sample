@@ -33,7 +33,7 @@ pipeline {
 
             // Step 2: Copy the JAR to the remote server
             sh '''
-            scp -o StrictHostKeyChecking=no target/app.jar ubuntu@192.168.1.10:/tmp/app.jar
+            scp -o StrictHostKeyChecking=no target/app.jar ubuntu@65.1.130.231:/tmp/app.jar
             '''
 
             // Step 3: Move JAR to Apache path (usually not ideal, but for demo it’s fine)

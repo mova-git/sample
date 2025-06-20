@@ -13,8 +13,7 @@ pipeline {
         stage('Build with Maven') {
             steps {
                 sh "${MAVEN_HOME}/bin/mvn clean package"
-                 sh 'mvn clean package'
-                sh 'ls -lh target/'
+                sh 'mvn clean package'
                 sh 'mv target/*.jar target/app.jar'
             }
         }

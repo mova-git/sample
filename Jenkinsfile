@@ -13,16 +13,15 @@ pipeline {
         stage('Build with Maven') {
             steps {
                 sh "${MAVEN_HOME}/bin/mvn clean package"
-                sh 'mvn clean package'
                 sh 'mv target/*.jar target/app.jar'
             }
         }
         stage('Deploy to Remote Server') {
-    steps {
-        echo 'Deploying to remote server...'
+        steps {
+            echo 'Deploying to remote server...'
 
-        // Make sure your private key is configured in Jenkins Credentials (ID: my-ssh-key)
-        sshagent(['my-ssh-key']) {
+            // Make sure your private key is configured in Jenkins Credentials (ID: my-ssh-key)
+            sshagent(['my-ssh-key']) {
 
             // Step 1: Install Apache HTTPD
             sh '''
